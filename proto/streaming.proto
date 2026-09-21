@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package streaming;
+
+option go_package = "lsd_rpc/proto/streaming";
+
+service StreamingService {
+  rpc Reproducir(StreamRequest) returns (stream AudioChunk);
+}
+
+message StreamRequest {
+  string audio_id = 1;
+}
+
+message AudioChunk {
+  bytes data = 1;
+  int32 chunk_id = 2;
+  int64 total_size = 3;
+}

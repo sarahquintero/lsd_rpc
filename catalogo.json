@@ -1,0 +1,34 @@
+{
+  "tipos": [
+    { "id": 1, "nombre": "Música" },
+    { "id": 2, "nombre": "Podcasts" },
+    { "id": 3, "nombre": "Audiolibros" },
+    { "id": 4, "nombre": "Ruido Blanco" }
+  ],
+  "audios": [
+    {
+      "id": "mus-001",
+      "tipo_id": 1,
+      "titulo": "Lamento boliviano",
+      "metadata": {
+        "artista_principal": "Enanitos Verdes",
+        "album": "Big Bang",
+        "genero": "Rock",
+        "sello": "Sony Music",
+        "anio": "1994"
+      }
+    },
+    {
+      "id": "mus-002",
+      "tipo_id": 1,
+      "titulo": "Bohemian Rhapsody",
+      "metadata": {
+        "artista_principal": "Queen",
+        "album": "A Night at the Opera",
+        "genero": "Rock",
+        "sello": "EMI",
+        "anio": "1975"
+      }
+    }
+  ]
+}
