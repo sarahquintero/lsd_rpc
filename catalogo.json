@@ -6,29 +6,21 @@
     { "id": 4, "nombre": "Ruido Blanco" }
   ],
   "audios": [
-    {
-      "id": "mus-001",
-      "tipo_id": 1,
-      "titulo": "Lamento boliviano",
-      "metadata": {
-        "artista_principal": "Enanitos Verdes",
-        "album": "Big Bang",
-        "genero": "Rock",
-        "sello": "Sony Music",
-        "anio": "1994"
-      }
-    },
-    {
-      "id": "mus-002",
-      "tipo_id": 1,
-      "titulo": "Bohemian Rhapsody",
-      "metadata": {
-        "artista_principal": "Queen",
-        "album": "A Night at the Opera",
-        "genero": "Rock",
-        "sello": "EMI",
-        "anio": "1975"
-      }
-    }
+    { "id": "mus-001", "tipo_id": 1, "titulo": "Lamento boliviano",
+      "metadata": { "artista_principal": "Enanitos Verdes", "album": "Big Bang", "genero": "Rock", "sello": "Sony Music", "anio": "1994" } },
+    { "id": "mus-002", "tipo_id": 1, "titulo": "Bohemian Rhapsody",
+      "metadata": { "artista_principal": "Queen", "album": "A Night at the Opera", "genero": "Rock", "sello": "EMI", "anio": "1975" } },
+    { "id": "pod-001", "tipo_id": 2, "titulo": "El episodio perdido",
+      "metadata": { "nombre_podcast": "Historias de la Noche", "anfitrion": "Andrés Molina", "temporada": "2", "episodio": "5", "clasificacion": "Para toda la familia" } },
+    { "id": "pod-002", "tipo_id": 2, "titulo": "IA y el futuro del trabajo",
+      "metadata": { "nombre_podcast": "Tech Talks", "anfitrion": "Laura Ríos", "temporada": "1", "episodio": "12", "clasificacion": "Explícito" } },
+    { "id": "aud-001", "tipo_id": 3, "titulo": "Cien años de soledad",
+      "metadata": { "autor": "Gabriel García Márquez", "narrador": "Gustavo Bonfigli", "editorial": "Penguin Random House", "isbn": "978-0307474728", "capitulo": "20", "duracion": "4:42", "genero": "Ficción" } },
+    { "id": "aud-002", "tipo_id": 3, "titulo": "Harry Potter y la Piedra Filosofal",
+      "metadata": { "autor": "J.K. Rowling", "narrador": "Carlos Ponce", "editorial": "Salamandra", "isbn": "978-8478884452", "capitulo": "17", "duracion": "8:20", "genero": "Fantasía" } },
+    { "id": "rbl-001", "tipo_id": 4, "titulo": "Lluvia nocturna",
+      "metadata": { "tipo_sonido": "Ruido Blanco", "fuente_audio": "Lluvia", "uso_sugerido": "Dormir", "proveedor_contenido": "SleepySounds", "duracion_bucle": "10:00", "frecuencia_dominante": "Graves" } },
+    { "id": "rbl-002", "tipo_id": 4, "titulo": "Bosque con ventilador",
+      "metadata": { "tipo_sonido": "Ruido Rosa", "fuente_audio": "Bosque", "uso_sugerido": "Concentración", "proveedor_contenido": "FocusLoop", "duracion_bucle": "15:00", "frecuencia_dominante": "Agudos" } }
   ]
 }
