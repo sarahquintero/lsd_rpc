@@ -7,11 +7,12 @@ import (
 	"os"
 	"time"
 
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+
 	"github.com/gopxl/beep/v2"
 	"github.com/gopxl/beep/v2/mp3"
 	"github.com/gopxl/beep/v2/speaker"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 
 	pb "lsd_rpc/proto/streaming"
 )
@@ -26,12 +27,12 @@ func NewStreamingService(direccion string) *StreamingService {
 	return &StreamingService{Direccion: direccion}
 }
 
-// Reproducir solicita el audio por streaming y lo escribe en un archivo temporal.
-// Devuelve la ruta del archivo reproducido.
-// Reproducir solicita el audio por streaming, lo guarda y lo reproduce.
-func (s *StreamingService) Reproducir(audioID string) (string, error) {
+// Reproducir descarga el audio por streaming y lo reproduce.
+// Si se cierra el canal `stop`, la reproducción se detiene inmediatamente.
+func (s *StreamingService) Reproducir(audioID string, stop <-chan struct{}) (string, error) {
 	fmt.Printf("[ECO-GRPC] Conectando a %s para audio %s\n", s.Direccion, audioID)
 
+	// ---- 1. Descarga por gRPC ----
 	conn, err := grpc.NewClient(
 		s.Direccion,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
@@ -74,13 +75,11 @@ func (s *StreamingService) Reproducir(audioID string) (string, error) {
 		total += int64(len(chunk.Data))
 		chunks++
 	}
-
-	// Cerrar el archivo antes de abrirlo para reproducir
 	out.Close()
 
 	fmt.Printf("[ECO-GRPC] Recibidos %d chunks, %d bytes\n", chunks, total)
 
-	// ---- Reproducción con beep ----
+	// ---- 2. Reproducción ----
 	f, err := os.Open(rutaSalida)
 	if err != nil {
 		return rutaSalida, fmt.Errorf("no se pudo abrir el archivo descargado: %w", err)
@@ -93,16 +92,28 @@ func (s *StreamingService) Reproducir(audioID string) (string, error) {
 	}
 	defer streamer.Close()
 
-	fmt.Println("[Audio] Reproduciendo...")
+	fmt.Println("[Audio] Reproduciendo... (presione una tecla para detener)")
 
 	speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
 
-	done := make(chan bool)
+	done := make(chan struct{})
 	speaker.Play(beep.Seq(streamer, beep.Callback(func() {
-		done <- true
+		close(done)
 	})))
-	<-done
 
-	fmt.Println("[Audio] Reproducción terminada.")
+	// ---- 3. Esperar fin de reproducción o señal de stop ----
+	if stop == nil {
+		<-done
+		fmt.Println("\n[Audio] Reproducción terminada.")
+		return rutaSalida, nil
+	}
+
+	select {
+	case <-done:
+		fmt.Println("\n[Audio] Reproducción terminada.")
+	case <-stop:
+		speaker.Clear()
+		fmt.Println("\n[Audio] Reproducción detenida por el usuario.")
+	}
 	return rutaSalida, nil
 }

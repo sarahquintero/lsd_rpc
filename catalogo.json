@@ -1,26 +1,132 @@
 {
   "tipos": [
-    { "id": 1, "nombre": "Música" },
-    { "id": 2, "nombre": "Podcasts" },
-    { "id": 3, "nombre": "Audiolibros" },
-    { "id": 4, "nombre": "Ruido Blanco" }
+    {
+      "id": 1,
+      "nombre": "Música"
+    },
+    {
+      "id": 2,
+      "nombre": "Podcasts"
+    },
+    {
+      "id": 3,
+      "nombre": "Audiolibros"
+    },
+    {
+      "id": 4,
+      "nombre": "Ruido Blanco"
+    }
   ],
   "audios": [
-    { "id": "mus-001", "tipo_id": 1, "titulo": "Lamento boliviano",
-      "metadata": { "artista_principal": "Enanitos Verdes", "album": "Big Bang", "genero": "Rock", "sello": "Sony Music", "anio": "1994" } },
-    { "id": "mus-002", "tipo_id": 1, "titulo": "Bohemian Rhapsody",
-      "metadata": { "artista_principal": "Queen", "album": "A Night at the Opera", "genero": "Rock", "sello": "EMI", "anio": "1975" } },
-    { "id": "pod-001", "tipo_id": 2, "titulo": "El episodio perdido",
-      "metadata": { "nombre_podcast": "Historias de la Noche", "anfitrion": "Andrés Molina", "temporada": "2", "episodio": "5", "clasificacion": "Para toda la familia" } },
-    { "id": "pod-002", "tipo_id": 2, "titulo": "IA y el futuro del trabajo",
-      "metadata": { "nombre_podcast": "Tech Talks", "anfitrion": "Laura Ríos", "temporada": "1", "episodio": "12", "clasificacion": "Explícito" } },
-    { "id": "aud-001", "tipo_id": 3, "titulo": "Cien años de soledad",
-      "metadata": { "autor": "Gabriel García Márquez", "narrador": "Gustavo Bonfigli", "editorial": "Penguin Random House", "isbn": "978-0307474728", "capitulo": "20", "duracion": "4:42", "genero": "Ficción" } },
-    { "id": "aud-002", "tipo_id": 3, "titulo": "Harry Potter y la Piedra Filosofal",
-      "metadata": { "autor": "J.K. Rowling", "narrador": "Carlos Ponce", "editorial": "Salamandra", "isbn": "978-8478884452", "capitulo": "17", "duracion": "8:20", "genero": "Fantasía" } },
-    { "id": "rbl-001", "tipo_id": 4, "titulo": "Lluvia nocturna",
-      "metadata": { "tipo_sonido": "Ruido Blanco", "fuente_audio": "Lluvia", "uso_sugerido": "Dormir", "proveedor_contenido": "SleepySounds", "duracion_bucle": "10:00", "frecuencia_dominante": "Graves" } },
-    { "id": "rbl-002", "tipo_id": 4, "titulo": "Bosque con ventilador",
-      "metadata": { "tipo_sonido": "Ruido Rosa", "fuente_audio": "Bosque", "uso_sugerido": "Concentración", "proveedor_contenido": "FocusLoop", "duracion_bucle": "15:00", "frecuencia_dominante": "Agudos" } }
+    {
+      "id": "mus-001",
+      "tipo_id": 1,
+      "titulo": "Lamento boliviano",
+      "metadata": {
+        "album": "Big Bang",
+        "anio": "1994",
+        "artista_principal": "Enanitos Verdes",
+        "genero": "Rock",
+        "sello": "Sony Music"
+      }
+    },
+    {
+      "id": "mus-002",
+      "tipo_id": 1,
+      "titulo": "Bohemian Rhapsody",
+      "metadata": {
+        "album": "A Night at the Opera",
+        "anio": "1975",
+        "artista_principal": "Queen",
+        "genero": "Rock",
+        "sello": "EMI"
+      }
+    },
+    {
+      "id": "pod-001",
+      "tipo_id": 2,
+      "titulo": "El episodio perdido",
+      "metadata": {
+        "anfitrion": "Andrés Molina",
+        "clasificacion": "Para toda la familia",
+        "episodio": "5",
+        "nombre_podcast": "Historias de la Noche",
+        "temporada": "2"
+      }
+    },
+    {
+      "id": "pod-002",
+      "tipo_id": 2,
+      "titulo": "IA y el futuro del trabajo",
+      "metadata": {
+        "anfitrion": "Laura Ríos",
+        "clasificacion": "Explícito",
+        "episodio": "12",
+        "nombre_podcast": "Tech Talks",
+        "temporada": "1"
+      }
+    },
+    {
+      "id": "aud-001",
+      "tipo_id": 3,
+      "titulo": "Cien años de soledad",
+      "metadata": {
+        "autor": "Gabriel García Márquez",
+        "capitulo": "20",
+        "duracion": "4:42",
+        "editorial": "Penguin Random House",
+        "genero": "Ficción",
+        "isbn": "978-0307474728",
+        "narrador": "Gustavo Bonfigli"
+      }
+    },
+    {
+      "id": "aud-002",
+      "tipo_id": 3,
+      "titulo": "Harry Potter y la Piedra Filosofal",
+      "metadata": {
+        "autor": "J.K. Rowling",
+        "capitulo": "17",
+        "duracion": "8:20",
+        "editorial": "Salamandra",
+        "genero": "Fantasía",
+        "isbn": "978-8478884452",
+        "narrador": "Carlos Ponce"
+      }
+    },
+    {
+      "id": "rbl-001",
+      "tipo_id": 4,
+      "titulo": "Lluvia nocturna",
+      "metadata": {
+        "duracion_bucle": "10:00",
+        "frecuencia_dominante": "Graves",
+        "fuente_audio": "Lluvia",
+        "proveedor_contenido": "SleepySounds",
+        "tipo_sonido": "Ruido Blanco",
+        "uso_sugerido": "Dormir"
+      }
+    },
+    {
+      "id": "rbl-002",
+      "tipo_id": 4,
+      "titulo": "Bosque con ventilador",
+      "metadata": {
+        "duracion_bucle": "15:00",
+        "frecuencia_dominante": "Agudos",
+        "fuente_audio": "Bosque",
+        "proveedor_contenido": "FocusLoop",
+        "tipo_sonido": "Ruido Rosa",
+        "uso_sugerido": "Concentración"
+      }
+    },
+    {
+      "id": "mus-003",
+      "tipo_id": 1,
+      "titulo": "Mr. Brownstone",
+      "metadata": {
+        "titulo": "Mr. Brownstone"
+      }
+    }
   ]
 }
